@@ -25,10 +25,12 @@ use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 Route::get('/admin', function () {
     return view('welcome');
-});
+})
+->middleware(['guest']);;
 Route::get('/admin/home', function () {
     return view('admin/home');
-});
+})
+->middleware(['auth']);
 
 
 
