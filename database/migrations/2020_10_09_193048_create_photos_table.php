@@ -16,12 +16,13 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('url');
             $table->integer('width');
             $table->integer('height');
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->date('date');
             $table->string('location');
         });
