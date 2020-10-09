@@ -32,7 +32,11 @@ Route::get('/admin/home', function () {
 })
 ->middleware(['auth']);
 
-
+Route::group(['prefix' => 'home'], function() {
+    // Route::view('/', 'dashboard/dashboard');
+    Route::get('photos/create/{id}', 'PhotosController@create');
+    Route::resource('photos', 'PhotosController')->except('create');
+});
 
 //Fortify Overrides
 
