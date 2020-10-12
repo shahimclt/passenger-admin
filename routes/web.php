@@ -12,6 +12,8 @@ use Laravel\Fortify\Http\Controllers\PasswordResetLinkController;
 use Laravel\Fortify\Http\Controllers\ProfileInformationController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
+use App\Http\Controllers\PhotoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,11 +35,9 @@ Route::get('/admin/home', function () {
 ->middleware(['auth']);
 
 Route::group(['prefix' => 'admin'], function() {
-    // Route::view('/', 'dashboard/dashboard');
-    Route::get('photos/create/{id}', 'PhotoController@create');
-    Route::resource('photos', 'PhotoController')->except('create');
-})
-->middleware(['auth']);
+    Route::get('photos/create', [PhotoController::class,'create'])->middleware(['auth']);
+    Route::resource('photos', PhotoController::class)->except('create')->middleware(['auth']);
+});
 
 //Fortify Overrides
 

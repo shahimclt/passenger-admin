@@ -18,7 +18,7 @@ class Photo extends Model
         'location'
     ];
 
-    public function room() {
+    public function category() {
         return $this->belongsTo('App\Models\Category');
     }
 }

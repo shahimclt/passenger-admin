@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Photo;
+use App\Models\Category;
 
 class PhotoController extends Controller
 {
@@ -27,7 +28,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return view('admin.photoCreate');
+        $categories = Category::all();
+        return view('admin.photoCreate', compact('categories'));
     }
 
     /**
@@ -38,7 +40,8 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->request->add(['width' => 625]);
+        $request->request->add(['width' => 640]);
+        $request->request->add(['height' => 480]);
         Photo::create($request->all());
         return redirect('admin/photos')->with('success', 'photo created!');
     }
@@ -64,7 +67,8 @@ class PhotoController extends Controller
     public function edit(Photo $photo)
     {
       $photo = Photo::with('category')->get()->find($photo->id);
-      return view('admin.photoEdit', compact('photo'));
+      $categories = Category::all();
+      return view('admin.photoEdit', compact('photo','categories'));
     }
 
     /**
@@ -76,7 +80,12 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-      $photo->user_id = 1;
+      $photo->title = $request->title;
+      $photo->description = $request->description;
+      $photo->date = $request->date;
+      $photo->location = $request->location;
+      $photo->category_id = $request->category_id;
+      $photo->url = $request->url;
 
       $photo->save();
       return redirect('admin/photos')->with('success', 'Successfully updated your photo!');
