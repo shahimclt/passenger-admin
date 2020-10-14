@@ -19,12 +19,12 @@ class CreatePhotosTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('url');
-            $table->integer('width');
-            $table->integer('height');
+            $table->integer('width')->nullable();
+            $table->integer('height')->nullable();
             $table->string('title');
             $table->longText('description');
-            $table->date('date');
-            $table->string('location');
+            $table->date('date')->nullable();
+            $table->string('location')->nullable();
         });
     }
 
