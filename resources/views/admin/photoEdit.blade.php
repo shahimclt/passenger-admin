@@ -8,14 +8,16 @@
         </div>
         <div class="card-body">
             <h5 class="card-title"></h5>
-            <form action="{{ route('photos.update', $photo->id) }}" method="POST">
+            <form action="{{ route('photos.update', $photo->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="url">URL</label>
-                            <input class="form-control" name="url" value="{{ old('title', $photo->url) }}">
+                            <label for="url">Photo File</label>
+                            <input class="form-control" type="file" name="url" value="">
+                            
+                            <img style="height: 250px; width: auto" src="{{ asset('storage/photo_files/'. old('url', $photo->url) ) }}">
                         </div>
                     </div>
                     <div class="col-12">

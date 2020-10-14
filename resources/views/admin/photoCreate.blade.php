@@ -8,13 +8,13 @@
         </div>
         <div class="card-body">
             <h5 class="card-title"></h5>
-            <form action="{{ route('photos.store') }}" method="POST">
+            <form action="{{ route('photos.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                <div class="col-12">
+                    <div class="col-12">
                         <div class="form-group">
-                            <label for="url">URL</label>
-                            <input class="form-control" name="url">
+                            <label for="photo-file">Photo File</label>
+                            <input class="form-control" type="file" name="photo_file">
                         </div>
                     </div>
                     <div class="col-12">

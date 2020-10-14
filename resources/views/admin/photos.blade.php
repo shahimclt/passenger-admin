@@ -19,7 +19,7 @@
             @foreach ($photos as $photo)
             <tr>
                 <td> 
-                    <img style="width: 60px; height: 40px; object-fit: cover" src="{{ $photo->url }}"> 
+                    <img style="width: 60px; height: 40px; object-fit: cover" src="{{ asset('storage/photo_files/'.$photo->url) }}"> 
                     <a href="/admin/photos/{{ $photo->id }}">{{ $photo->title }}</a>
                 </td>
                 <td>{{ $photo->category['name'] }}</td>
