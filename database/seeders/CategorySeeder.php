@@ -16,19 +16,19 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Marriott',
-                'description' => 'International luxurious hotel.',
-                'image' => 'https://placeimg.com/640/480/arch'
+                'name' => 'People',
+                'description' => '',
+                'image' => ''
             ],
             [
-                'name' => 'Aria',
-                'description' => 'International luxurious hotel.',
-                'image' => 'https://placeimg.com/640/480/arch'
+                'name' => 'Places',
+                'description' => '',
+                'image' => ''
             ],
             [
-                'name' => 'MGM Grand',
-                'description' => 'International luxurious hotel.',
-                'image' => 'https://placeimg.com/640/480/arch'
+                'name' => 'Ponder/Patches',
+                'description' => '',
+                'image' => ''
             ]
         ];
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Photo;
 use App\Models\Category;
+use Image;
 
 class PhotoController extends Controller
 {
@@ -51,12 +53,19 @@ class PhotoController extends Controller
 			$fileNameToStore = $filename . '_' . time() . '.' . $extension;
 			//image upload
 			$path = $request->file('photo_file')->storeAs('public/photo_files', $fileNameToStore);
+
+
+			$image = Image::make($request->file('photo_file')->getRealPath());
+
+			$request->request->add(['url' => $fileNameToStore]);
+			$request->request->add(['width' => $image->width()]);
+			$request->request->add(['height' => $image->height()]);
 		} else {
-			$fileNameToStore = 'noimage.jpg';
+			$request->request->add(['url' => '']);
+			$request->request->add(['width' => 0]);
+			$request->request->add(['height' => 0]);
 		}
-		$request->request->add(['url' => $fileNameToStore]);
-		$request->request->add(['width' => 640]);
-		$request->request->add(['height' => 480]);
+		
 		Photo::create($request->all());
 		return redirect('admin/photos')->with('success', 'photo created!');
 	}
@@ -100,7 +109,27 @@ class PhotoController extends Controller
 		$photo->date = $request->date;
 		$photo->location = $request->location;
 		$photo->category_id = $request->category_id;
-		$photo->url = $request->url;
+		
+		if ($request->hasFile('photo_file')) {
+			//get file name with extension
+			$fileNameWithExt = $request->file('photo_file')->getClientOriginalName();
+			//get just file name
+			$filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+			//just file extension
+			$extension = $request->file('photo_file')->getClientOriginalExtension();
+			//file name to store
+			$fileNameToStore = $filename . '_' . time() . '.' . $extension;
+			//image upload
+			$path = $request->file('photo_file')->storeAs('public/photo_files', $fileNameToStore);
+
+			Storage::delete('public/photo_files/'. $photo->url);
+
+			$image = Image::make($request->file('photo_file')->getRealPath());
+
+			$photo->url = $fileNameToStore;
+			$photo->width = $image->width();
+			$photo->height = $image->height();
+		}
 
 		$photo->save();
 		return redirect('admin/photos')->with('success', 'Successfully updated your photo!');
@@ -115,6 +144,7 @@ class PhotoController extends Controller
 	public function destroy(Photo $photo)
 	{
 		$photo = Photo::find($photo->id);
+		Storage::delete('public/photo_files/'. $photo->url);
 		$photo->delete();
 
 		return redirect('admin/photos')->with('success', 'Successfully deleted your photo!');

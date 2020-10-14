@@ -19,8 +19,10 @@
             @foreach ($photos as $photo)
             <tr>
                 <td> 
-                    <img style="width: 60px; height: 40px; object-fit: cover" src="{{ asset('storage/photo_files/'.$photo->url) }}"> 
-                    <a href="/admin/photos/{{ $photo->id }}">{{ $photo->title }}</a>
+                    <div class="d-flex align-items-center">
+                        <img style="width: 40px; height: 40px; border-radius: 3px; object-fit: cover" class="flex-fixed mr-2" src="{{ asset('storage/photo_files/'.$photo->url) }}"> 
+                        <a href="/admin/photos/{{ $photo->id }}">{{ $photo->title }}</a>
+                    </div>
                 </td>
                 <td>{{ $photo->category['name'] }}</td>
                 <td>{{ $photo->date }}</td>

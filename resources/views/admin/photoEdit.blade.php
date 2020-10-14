@@ -15,7 +15,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="url">Photo File</label>
-                            <input class="form-control" type="file" name="url" value="">
+                            <input class="form-control" type="file" name="photo_file">
                             
                             <img style="height: 250px; width: auto" src="{{ asset('storage/photo_files/'. old('url', $photo->url) ) }}">
                         </div>
