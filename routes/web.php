@@ -13,6 +13,7 @@ use Laravel\Fortify\Http\Controllers\ProfileInformationController;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +26,14 @@ use App\Http\Controllers\PhotoController;
 |
 */
 
+Route::get('/', [WebsiteController::class,'index']) ->middleware(['guest']);
+
+// Admin Panel
+
 Route::get('/admin', function () {
-    return view('welcome');
+    return redirect('/admin/home');
 })
-->middleware(['guest']);;
+->middleware(['guest']);
 Route::get('/admin/home', function () {
     return view('admin/home');
 })

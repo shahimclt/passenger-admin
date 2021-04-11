@@ -1,3 +1,11 @@
+### Dev Resources
+
+Tutorial that was followed: https://auth0.com/blog/build-a-laravel-6-app-with-authentication/#Installation
+
+#### Running Locally
+
+
+
 ### Deploy Instructions
 
 - Clone outside public_html as `passenger`
