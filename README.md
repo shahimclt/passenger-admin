@@ -4,7 +4,9 @@ Tutorial that was followed: https://auth0.com/blog/build-a-laravel-6-app-with-au
 
 #### Running Locally
 
-
+- get local DB running using XAMP
+- seed and migrate if required
+- just run `php artisan serve`
 
 ### Deploy Instructions
 
