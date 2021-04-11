@@ -13,6 +13,12 @@ class WebsiteController extends Controller
 		$photos = Photo::with('category')
 			// ->orderBy('arrival', 'asc')
 			->get();
-		return view('website.home')->with('photos', $photos);
+
+        
+		$categories = Category::all();
+
+		return view('website.home')
+            ->with('photos', $photos)
+            ->with('categories', $categories);
 	}
 }

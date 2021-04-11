@@ -24,10 +24,9 @@
             <div class="filter-title">Filters <i class="fal fa-long-arrow-right"></i></div>
             <div class="gallery-filters">
                 <a href="#" class="gallery-filter  gallery-filter-active" data-filter="*">All</a>
-                <a href="#" class="gallery-filter" data-filter=".nature">Nature</a>
-                <a href="#" class="gallery-filter" data-filter=".models">Models</a>
-                <a href="#" class="gallery-filter" data-filter=".couples">Couples</a>
-                <a href="#" class="gallery-filter" data-filter=".outdoor">Outdoor</a>
+                @foreach ($categories as $option)
+                    <a href="#" class="gallery-filter" data-filter=".ps-cat-{{$option->id}}">{{ $option->name }}</a>
+                @endforeach
             </div>
         </div>
         <!-- bottom-filter-wrap end -->	
@@ -37,7 +36,7 @@
             <!-- portfolio start -->
             <div id="portfolio_horizontal_container" class="two-ver-columns lightgallery">
                 @foreach ($photos as $photo)
-                <div class="portfolio_item nature">
+                <div class="portfolio_item ps-cat-{{ $photo->category['id'] }}">
                     <div class="grid-item-holder hov_zoom">
                         <img  src="{{ asset('storage/photo_files/'.$photo->url) }}"    alt="">
                         <!-- <a href="/admin/photos/{{ $photo->id }}"></a> -->
