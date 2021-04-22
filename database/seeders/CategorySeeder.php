@@ -26,7 +26,7 @@ class CategorySeeder extends Seeder
                 'image' => ''
             ],
             [
-                'name' => 'Ponder/Patches',
+                'name' => 'Perceptions',
                 'description' => '',
                 'image' => ''
             ]
