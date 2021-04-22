@@ -15,6 +15,6 @@ Tutorial that was followed: https://auth0.com/blog/build-a-laravel-6-app-with-au
 - Copy `passenger/public` to `public_html` : `cp -R public/* ../public_html`
 - Change paths in `index.php` from `../` to `../passenger/` (or use the index.deploy.php)
 - Create `.env` file and connect database
-- Migrate DB `php artisan migrate:refresh --seed`
+- Migrate DB `php artisan migrate:refresh --seed` ( Just `php artisan migrate` after the first time )
 - Create laravel symlinks to storage: `php artisan storage:link` in project root
 - Create symlink in public_html: `ln -s ../passenger/storage/app/public/ -T storage`
