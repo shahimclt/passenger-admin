@@ -22,7 +22,7 @@ class CreatePhotosTable extends Migration
             $table->integer('width')->nullable();
             $table->integer('height')->nullable();
             $table->string('title');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->date('date')->nullable();
             $table->string('location')->nullable();
         });

@@ -50,12 +50,38 @@ class PhotoController extends Controller
 			//just file extension
 			$extension = $request->file('photo_file')->getClientOriginalExtension();
 			//file name to store
-			$fileNameToStore = $filename . '_' . time() . '.' . $extension;
+			$fileNameToStore = 'showcaseImage' . '_' . time() . '.' . $extension;
 			//image upload
-			$path = $request->file('photo_file')->storeAs('public/photo_files', $fileNameToStore);
 
+			// $request->file('photo_file')->storeAs('originalImages', $fileNameToStore);
 
-			$image = Image::make($request->file('photo_file')->getRealPath());
+			$resizedImagePath = public_path('storage/photo_files/full');
+			if(!Storage::exists('public/photo_files/full')) {
+				Storage::makeDirectory('public/photo_files/full', 0775, true); //creates directory
+			}
+			
+			$tileImagePath = public_path('storage/photo_files/tile');
+			if(!Storage::exists('public/photo_files/tile')) {
+				Storage::makeDirectory('public/photo_files/tile', 0775, true); //creates directory
+			}
+
+			//create display image
+			$image = Image::make($request->file('photo_file')->path());
+			$image->resize(1920, 1920, function ($constraint) {
+				$constraint->aspectRatio();
+				$constraint->upsize();
+			});
+			$image->save($resizedImagePath.'/'.$fileNameToStore);
+
+			//create home tile image
+			$image = Image::make($request->file('photo_file')->path());
+			$image->resize(null, 600, function ($constraint) {
+				$constraint->aspectRatio();
+				$constraint->upsize();
+			});
+			$image->save($tileImagePath.'/'.$fileNameToStore);
+
+			$request->file('photo_file')->storeAs('originalImages', $fileNameToStore);
 
 			$request->request->add(['url' => $fileNameToStore]);
 			$request->request->add(['width' => $image->width()]);
@@ -144,7 +170,9 @@ class PhotoController extends Controller
 	public function destroy(Photo $photo)
 	{
 		$photo = Photo::find($photo->id);
-		Storage::delete('public/photo_files/'. $photo->url);
+		Storage::delete('public/photo_files/full/'. $photo->url);
+		Storage::delete('public/photo_files/tile/'. $photo->url);
+		Storage::delete('originalImages/'. $photo->url);
 		$photo->delete();
 
 		return redirect('admin/photos')->with('success', 'Successfully deleted your photo!');

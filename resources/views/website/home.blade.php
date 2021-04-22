@@ -38,9 +38,9 @@
                 @foreach ($photos as $photo)
                 <div class="portfolio_item ps-cat-{{ $photo->category['id'] }}">
                     <div class="grid-item-holder hov_zoom">
-                        <img  src="{{ asset('storage/photo_files/'.$photo->url) }}"    alt="">
+                        <img  src="{{ asset('storage/photo_files/tile/'.$photo->url) }}"    alt="">
                         <!-- <a href="/admin/photos/{{ $photo->id }}"></a> -->
-                        <a href="{{ asset('storage/photo_files/'.$photo->url) }}" class="box-media-zoom popup-image"><i class="fal fa-search"></i></a>                                    
+                        <a href="{{ asset('storage/photo_files/full/'.$photo->url) }}" class="box-media-zoom popup-image"><i class="fal fa-search"></i></a>                                    
                         <div class="thumb-info">
                             <h3><a href="#">{{ $photo->title }}</a></h3>
                             <p>{{ $photo->description }}</p>

@@ -20,7 +20,7 @@
             <tr>
                 <td> 
                     <div class="d-flex align-items-center">
-                        <img style="width: 40px; height: 40px; border-radius: 3px; object-fit: cover" class="flex-fixed mr-2" src="{{ asset('storage/photo_files/'.$photo->url) }}"> 
+                        <img style="width: 40px; height: 40px; border-radius: 3px; object-fit: cover" class="flex-fixed mr-2" src="{{ asset('storage/photo_files/tile/'.$photo->url) }}"> 
                         <a href="/admin/photos/{{ $photo->id }}">{{ $photo->title }}</a>
                     </div>
                 </td>

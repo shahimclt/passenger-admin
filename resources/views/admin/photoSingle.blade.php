@@ -9,7 +9,7 @@
         <div class="card-body">
             <div class="card-body">
                 <div class="d-flex">
-                    <img src="{{ asset('storage/photo_files/'.$photo->url) }}" style="max-width: 400px; border-radius: 4px;" class="img-fluid flex-fixed mr-3" alt="Photo">
+                    <img src="{{ asset('storage/photo_files/full/'.$photo->url) }}" style="max-width: 400px; border-radius: 4px;" class="img-fluid flex-fixed mr-3" alt="Photo">
                     <div class="">
                         <h5 class="card-title">{{ $photo->category['name'] }}</h5>
                         <h6 class="card-title">{{ $photo->location }} - <small>{{ $photo->date }}</small></h6>
