@@ -61,5 +61,29 @@
         <script type="text/javascript" src="{{ asset('web/js/scripts.js') }}"></script>
     </body>
 
-<!-- Mirrored from kotlis.kwst.net/dark/portfolio.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 16 Aug 2020 07:09:02 GMT -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyAfT2jIJNhJ1iwlIRE63waq2QP0vkhgGWI",
+        authDomain: "thepassenger-82cd5.firebaseapp.com",
+        projectId: "thepassenger-82cd5",
+        storageBucket: "thepassenger-82cd5.appspot.com",
+        messagingSenderId: "489159858478",
+        appId: "1:489159858478:web:9abb09fb102aa278fc02bf",
+        measurementId: "G-VZ8FBXX79H"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+
 </html>
