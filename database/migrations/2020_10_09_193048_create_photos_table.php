@@ -21,7 +21,7 @@ class CreatePhotosTable extends Migration
             $table->string('url');
             $table->integer('width')->nullable();
             $table->integer('height')->nullable();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->date('date')->nullable();
             $table->string('location')->nullable();
