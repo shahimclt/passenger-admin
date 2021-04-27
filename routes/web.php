@@ -26,7 +26,8 @@ use App\Http\Controllers\WebsiteController;
 |
 */
 
-Route::get('/', [WebsiteController::class,'index']) ->middleware(['guest']);
+Route::get('/', [WebsiteController::class,'index']) ->middleware(['guest'])->name('home');;
+Route::get('/about', [WebsiteController::class,'about']) ->middleware(['guest'])->name('about');;
 
 // Admin Panel
 

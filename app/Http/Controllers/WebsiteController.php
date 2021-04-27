@@ -18,7 +18,14 @@ class WebsiteController extends Controller
 		$categories = Category::all();
 
 		return view('website.home')
+			->with('nav','home')
             ->with('photos', $photos)
             ->with('categories', $categories);
+	}
+
+	public function about()
+	{
+		return view('website.about')
+		->with('nav','about');
 	}
 }

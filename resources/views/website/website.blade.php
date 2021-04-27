@@ -15,6 +15,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('web/css/plugins.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('web/css/style.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('web/css/style-dark.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('web/css/custom.css') }}">
         <!--=============== favicons ===============-->
         <!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
     </head>
@@ -44,8 +45,8 @@
                 <div class="nav-holder main-menu">
                     <nav>
                         <ul>
-                            <li><a href="/">Home </a></li>
-                            <li><a href="#">About </a></li>
+                            <li><a href="/" class="{{ (Route::is('home') ? 'act-link' : '') }}">Home </a></li>
+                            <li><a href="/about" class="{{ (Route::is('about') ? 'act-link' : '') }}">About </a></li>
                         </ul>
                     </nav>
                 </div>
