@@ -7,7 +7,7 @@
     <div class="content">
                     <!-- column-image  -->
                     <div class="column-image">
-                        <div class="bg"  data-bg="images/about.jpg"></div>
+                        <div class="bg"  data-bg="{{ asset('web/images/headshot.jpg') }}"></div>
                         <div class="overlay"></div>
                         <div class="column-title">
                             <h2>About Me</h2>
