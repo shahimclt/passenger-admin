@@ -34,7 +34,7 @@
         <div class="horizontal-grid-wrap  fl-wrap full-height ">
 
             <!-- portfolio start -->
-            <div id="portfolio_horizontal_container" class="two-ver-columns lightgallery">
+            <div id="portfolio_horizontal_container" class="one-ver-columns lightgallery">
                 @foreach ($photos as $photo)
                 <div class="portfolio_item ps-cat-{{ $photo->category['id'] }}">
                     <div class="grid-item-holder hov_zoom">
