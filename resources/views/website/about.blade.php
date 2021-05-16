@@ -27,7 +27,9 @@
                                 </div> -->
                                 <div class="column-wrapper_item fl-wrap">
                                     <div class="column-wrapper_text fl-wrap">
-                                        <p class="about-text">Passionate about street photography, I love to see things and interpret them from a more personal perspective. A walk by the streets will always treat you with an eyeful of stories to think, experience, learn and cherish. It's hard to walk away without capturing a few, and every image could always have something to tell you.</p>
+                                        <p class="about-text">Hi. Welcome to The Passenger.</p>
+                                        <p class="about-text">My name is Raja Rameez Ali. A self-taught who is trying to improve every day to become a better photographer.</p>
+                                        <p class="about-text">I love to see things and interpret them from a more personal perspective. A walk by the streets will always treat you with an eyeful of stories to think, experience, learn and cherish. It's hard to walk away without capturing a few, and every image could always have something to tell you.</p>
                                         <p class="about-text">Born in 1992, India. Street photography has now been a passion for a while, and I am ever amazed by the stories and colors of the streets that this land offers.</p>
                                         <a href="/" class="btn fl-btn">My Portfolio</a>
                                     </div>
