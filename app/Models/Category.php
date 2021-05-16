@@ -14,7 +14,7 @@ class Category extends Model
         'image'
     ];
 
-    public function rooms() {
+    public function photos() {
         return $this->hasMany('App\Models\Photo');
     }
 }

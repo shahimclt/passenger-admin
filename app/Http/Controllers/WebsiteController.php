@@ -15,7 +15,7 @@ class WebsiteController extends Controller
 			->get();
 
         
-		$categories = Category::all();
+		$categories = Category::has('photos')->get();
 
 		return view('website.home')
 			->with('nav','home')
